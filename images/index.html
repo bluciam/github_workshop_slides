@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>PyLadies: Fall in love with Python</title>
+
+    <meta name="description" content="Learn to love the command line">
+    <meta name="author" content="Blanca Mancilla">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  <div data-transition="fade" class="reveal">
+
+    <div class="slides">
+      <section id="pyladies" data-background="images/pyladies.png">
+        <a href=http://www.meetup.com/PyLadiesMTL/ target="_blank">
+          <img src="images/pyladies-1.png">
+        </a>
+        <h2><b>LEARN TO LOVE THE COMMAND LINE</b></h2>
+        <p>
+        <p>
+          Thursday, 19 February, 2015
+        <p>
+          <del>Google Montreal</del><br>
+          Shopify Montreal
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h1>In love with...</h1>
+          <h3>the command line</h3>
+          <small>
+            <p>
+              <a href="http://cli-talk.bitballoon.com" target="_blank">
+                <code>
+                  http://cli-talk.bitballoon.com
+                </code>
+              </a>
+            </p>
+            <p>
+              <a href="https://ca.linkedin.com/in/blancalmancilla/"
+                target="_blank">
+                Blanca Mancilla
+              </a> / 
+              <a href="https://github.com/bluciam" target="_blank">bluciam
+              </a> /
+              <a href="http://twitter.com/Blanckus" target="_blank"> @Blanckus
+              </a>
+            </p>
+          </small>
+        </section>
+      </section>
+
+      <section>
+        <section>
+        <a href="http://linuxcommand.org" target="_blank" class="image">
+          <img src="images/linuxcommand-org.png" alt="LinuxCommand.org">
+        </a>
+        </section>
+
+        <section>
+          <code>LinuxCommand.org</code>
+          <blockquote>
+            You have Linux installed and running. The GUI is working fine, but
+            you are getting tired of changing your desktop themes. You keep
+            seeing this "terminal" thing.
+          </blockquote>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>What is the command line?</h2>
+        </section>
+        <section>
+          <h2>What is the command line?</h2>
+          Anybody with little or no experience?<br>
+          What do you know about it?<br>
+          What are you expecting to learn tonight?
+        </section>
+      </section>
+
+      <section>
+        <section id="definition">
+          <h2>The command line<br> and the shell</h2>
+          <pre>
+
+   A command-line interface (CLI) is a means of interacting with a
+   computer program where the user issues commands to the program in
+   the form of successive lines of text (command lines).
+                <a href="
+                https://en.wikipedia.org/wiki/Command-line_interface"
+                target="_blank">
+                https://en.wikipedia.org/wiki/Command-line_interface</a>
+          </pre>
+          Specifically, the computer program is the operating system (UNIX
+          or nowadays Linux) and the interface is what we called the
+          <a href="https://en.wikipedia.org/wiki/Shell_%28computing%29"
+             target="_blank">
+            <code>shell</code>
+          </a>.
+        </section>
+
+        <section id="shells">
+          <h2>Types of shells in Linux</h2>
+          <ul>
+            <li> sh </li>
+            <li> bash </li>
+            <li> csh and tcsh </li>
+            <li> ksh </li>
+            <li>
+              <a
+        href="http://smallbusiness.chron.com/types-shells-linux-54042.html" 
+        target="_blank">
+        read more...
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>How do I know which shell?</h2>
+          <pre><code contenteditable>~ $ which bash
+/bin/bash
+~ $ which sh
+/bin/sh
+~ $ which csh
+~ $ echo $SHELL
+/bin/bash
+~ $ sh
+$ echo $SHELL
+/bin/bash
+$ ps -p $$
+  PID TTY          TIME CMD
+17793 pts/28   00:00:00 sh
+$ ^D
+~ $ ps -p $$
+  PID TTY          TIME CMD
+15615 pts/28   00:00:01 bash
+          </code></pre>
+        </section>
+      </section>
+
+      <section>
+        <section id="inspiration">
+          <h2>The Inspiration</h2>
+          <a href="#" class="navigate-down">
+            <img width="178" height="238" 
+            data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
+            alt="Down arrow">
+          </a>
+        </section>
+
+        <section id="data-book">
+          <em>Data Science at the Command Line</em> by Jeroen Janssens
+          <a
+            href="http://shop.oreilly.com/product/0636920032823.do?sortby=publicationDate"
+            target="_blank"
+            class="image">
+            <img src="images/datasciencebook.jpg"
+                 alt="Data Science at the command line">
+          </a>
+        </section>
+
+        <section id="quote">
+          <blockquote>
+The Unix philosophy of simple tools, each doing one job well, then cleverly
+piped together, is embodied by the command line. Jeroen expertly discusses
+how to bring that philosophy into your work in data science, illustrating
+how the command line is not only the world of file input/ output, but also
+the world of data manipulation, exploration, and even modeling.
+          </blockquote>
+          <font size="+1">
+            <div align="right">
+              —Chris H. Wiggins<br>
+              Associate Professor in the Department of Applied Physics<br>
+              and Applied Mathematics at Columbia University<br>
+              and Chief Data Scientist at The New York Times
+            </div>
+          </font>
+        </section>
+
+        <section id="commands">
+        <h2><a href=#/commands target="_blank">Appendix: commands</a></h2>
+          <tt>
+            alias awk aws bash bc bigmler body cat cd chmod cols cowsay cp
+            csvcut csvgrep csvjoin csvlook csvsort csvsql csvstack csvstat
+            curl curlicue cut display drake dseq echo env export
+            feedgnuplot fieldsplit find for git grep head header in2csv jq
+            json2csv less ls man mkdir mv parallel paste pbc pip pwd python
+            R Rio Rio-scatter rm
+          </tt>
+        </section>
+      </section>
+
+      <section>
+        <h1>Some details now!</h1>
+      </section>
+
+<!-- FOR LOOPS? -->
+      <section>
+        <section id="forloops">
+          <h2>For loops?</h2>
+          Yes! Of course.
+          <pre><code class="sh" data-trim contenteditable>
+for i in *pdf; do evince $i; done
+          </code></pre>
+        </section>
+        
+        <section id="for-screen">
+          <h2>For loops</h2>
+          <pre><code data-trim contenteditable>
+:lyceum $ ls *pdf
+HowToBeAProgrammer.pdf         SENG3020-0.1.pdf   teaching-prgm.pdf
+SENG3010-BART-Req-v1-1-3d.pdf  SENG3020_07s2.pdf
+:lyceum $ evince *pdf
+:lyceum $ for i in *pdf; do evince $i; done
+          </code></pre>
+        </section>
+
+        <section id="for-code">
+        <h2>For loops</h2>
+        <p>
+          In a script 
+          <pre><code data-trim contenteditable>
+for i in *pdf
+do
+  evince $i
+done
+          </code></pre>
+        </p>
+        or even
+        <p>
+          <pre><code data-trim contenteditable>
+for i in `ls *pdf`
+do
+  evince $i
+done
+          </code></pre>
+        </p>
+        <p style="text-align: right; font-size: 0.5em" >
+            <a href="http://bash.cyberciti.biz/guide/For_loop"
+            target="_blank">More info</a>
+        </p>
+        </section>
+      </section>
+
+<!-- IF A FILE EXISTS -->
+      <section>
+        <section id="file-exists">
+          <h2>Check if a file exists and if not ...</h2>
+            <pre><code class="nohighlight" data-trim contenteditable>
+cli-talk: $ [ -f index.html ] && echo "Yes, we have a presentation!" \
+|| echo "PANIC"
+            </code></pre>
+          </section>
+
+          <section id="file-exists-code">
+          <h2>Check if a file exists and if not ...</h2>
+            <a href="images/terminal-03.png">
+              <img src="images/terminal-03.png">
+            </a>
+          </section>
+
+          <section id="file-exists-demo">
+            <h2>Check if a file exists and if not ...</h2>
+            Let's try a demo
+            <pre><code class="nohighlight" data-trim contenteditable>
+cli-talk: $ locate *9768.JPG
+            </code></pre>
+        </section>
+      </section>
+
+<!-- GLOB PATTERNS -->
+      <section>
+        <section id="glob-patterns">
+          <h2>Glob patterns:<br>real magic!</h2>
+          <p class="fragment">
+            Strictly speaking, there are neither regular expressions nor
+            patterns used in pattern recognition.<br>
+            They are 
+            <a href="https://en.wikipedia.org/wiki/Glob_%28programming%29"
+               target="_blank">
+               glob patterns
+            </a>.
+          </p>
+        </section>
+
+        <section id="glob-code">
+          <h2>Glob patterns:<br>real magic!</h2>
+          <pre><code class="nohighlight" data-trim contenteditable>
+ls app/*.{erb,scss,rb,yml}
+
+vi public_html/[iI]*.htm*
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Glob patterns:<br>real magic!</h2>
+          My favorite: Move all image files for the years <br>
+          2010 to 2012 into <code>my_dir</code>.<br><br>
+          <pre><code data-trim contenteditable>
+            mv {IMG,img}*201[012]*.{jpg,JPG,png,gif} my_dir
+          </code></pre>
+        </section>
+      </section>
+
+<!-- FIND A RESOURCE -->
+      <section>
+        <section id="find-command">
+          <h2>Find a resource anywhere in your hard drive</h2>
+        </section>
+
+        <section id="find-versus">
+          <h2>Find a resource ...</h2>
+          <code>locate</code> versus <code>find</code>
+          <pre><code class="nohighlight" data-trim contenteditable>
+LoriBiz: $ locate *.erb
+LoriBiz: $ find . -name *.erb
+          </code></pre>
+        </section>
+
+        <section id="find-code">
+          <h2>Find a resource...</h2>
+          <code style="text-align: left; font-size: 0.78em">
+            <p>
+              find . -name *.erb -exec ls {} \;
+            </p>
+            <p class="fragment">
+              find . -name *.erb -exec grep mytableauthor {} \;
+            </p>
+            <p class="fragment">
+              find . -name *.erb -exec grep -H mytableauthor {} \;
+            </p>
+            <p class="fragment">
+              find . -name *.scss -exec grep -H mytableauthor {} \;
+            </p>
+            <p class="fragment">
+              find . -name *.scss -exec grep -n -H mytableauthor {} \;
+            </p>
+          </code>
+        </section>
+      </section>
+
+<!-- FIND TRAILING SPACES -->
+      <section>
+        <section id="trailing-space">
+          <h2>Find and replace trailing spaces in source code</h2>
+        </section>
+
+        <section id="trailing-space-grep">
+          <h2>Find ... trailing spaces in source code</h2>
+          <pre><code class="nohighlight" data-trim contenteditable>
+            cli-talk $ grep "\s\+$" index.html 
+          </code></pre>
+        </section>
+
+        <section id="trailing-space-vi">
+          <h2>... replace trailing spaces in source code</h2>
+          <pre><code class="nohighlight" data-trim contenteditable>
+LoriBiz$ find . -name *.erb -exec grep -Hn "\s\+$" {} \; 
+LoriBiz$ find . -name *.erb -exec grep -Hn "\s\+$" {} \; -exec vi {} \;
+
+# Once in vi find and replace using the command
+:%s/\s\+$//
+          </code></pre>
+        </section>
+      </section>
+
+<!-- GIT BACKUP -->
+      <section>
+        <section id="backup-git-repo">
+          <h2>Making backups of<br> git repositories</h2>
+          <a
+            href="https://superspreadsheet.wordpress.com/2013/02/08/backing-up-git-repositories-and-cron/" 
+            target="_blank">
+            <code>superspreadsheet.wordpress.com</code>
+          </a>
+        </section>
+
+        <section>
+          <h2>Making backups of ...</h2>
+          <ol>
+            <li><code>pull</code> from the bare repository</li>
+            <li><code>commit</code> local changes</li>
+            <li><code>push</code> changes to the bare repository</li>
+       </section>
+
+        <section>
+          <h2>Making backups of ...</h2>
+          Pull and Commit
+          <pre><code data-trim contenteditable> 
+ 1 #!/bin/sh
+ 2 #
+ 3 # Automatic pull and commit on the directories listed in dirs_to_pull
+ 4 
+ 5 CRONLOG="/complete/path/to/pullcommitpush.log"
+ 6 COMMITMSG="/complete/path/to/msgAutoCommit"
+ 7 echo >> $CRONLOG
+ 8 echo "Nightly git auto-commit for the absent minds: $(date)" >> $CRONLOG
+ 9 for i in `cat /complete/path/to/dirs_to_pull`
+10   do (cd $i;
+11       echo "PULL $i $(date)" >> $CRONLOG ;
+12       git pull >> $CRONLOG 2>&1 ;
+13       echo "COMMIT $i $(date)" >> $CRONLOG ;
+14       git commit -a -F $COMMITMSG >> $CRONLOG 2>&1
+15       echo >> $CRONLOG  )
+16 done 
+17 echo >> $CRONLOG ;
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Making backups of ...</h2>
+          Push
+          <pre><code data-trim contenteditable> 1 #!/bin/sh
+ 2 #
+ 3 # Automatic push on the directories listed in dirs_to_push
+ 4
+ 5 CRONLOG="/complete/path/to/pullcommitpush.log"
+ 6 echo >> $CRONLOG
+ 7 echo "Nightly git auto-push for the absent minds: $(date)" >> $CRONLOG
+ 8 for i in `cat /complete/path/to/dirs_to_push`
+ 9  do (cd $i;
+10    echo "PUSH: $i $(date)" >> $CRONLOG
+11    git push >> $CRONLOG 2>&1
+12    echo >> $CRONLOG
+13   ) ;
+14 done
+15 echo >> $CRONLOG ;
+          </code></pre>
+        </section>
+      </section>
+
+<!-- CRON: SCHEDULING THE BACKUP -->
+      <section>
+        <section id="cron-backup">
+          <h2>Making backups using ...</h2>
+          <code>cron</code>: from the Greek word for time, χρόνος chronos.
+        </section>
+
+        <section>
+          <h2>Making backups using ...</h2>
+          <blockquote>
+            Cron is a time-based job scheduler that
+            Sysadmins use to schedule jobs
+            to run periodically at fixed times,
+            dates, or intervals (i.e. download email
+            at regular intervals).
+          </blockquote>
+          <font size="+1">
+            <div align="right">
+              <a href="https://en.wikipedia.org/wiki/Cron"
+                target="_blank">
+                <code>https://en.wikipedia.org/wiki/Cron</code>
+              </a>
+            </div>
+          </font>
+        </section>
+
+        <section>
+          <h2>Making backups using ...</h2>
+          <pre><code data-trim contenteditable>
+            crontab -e
+          </code></pre>
+          <code><font size="+3">
+            minute hour dayOfMonth month dayOfWeek command
+          </font>
+          </code>
+          <pre><code class="nohighlight" data-trim contenteditable>
+3 2 * * * /complete/path/to/pull_commit 2> /complete/path/to/pull_commit.err
+5 2 * * * /complete/path/to/push 2> /complete/path/to/push.err
+          </code></pre>
+        </section>
+      </section>
+
+      <section id="copied-repo">
+        <section>
+          <h2>Command lines for working remotely</h2>
+          <ul>
+            <li><tt>fg</tt></li>
+            <li>Ctrl-Z</li>
+            <li><tt>bg</tt></li>
+            <li><tt>jobs</tt></li>
+            <li><tt>pushd</tt></li>
+            <li><tt>popd</tt></li>
+            <li><tt>vim</tt></li>
+          </ul>
+        </section>
+      </section>
+
+<!-- COPYING REPOS WHICH ARE NOT QUITE REPOS -->
+      <section id="copied-repo">
+        <section>
+          <h2>Creating a copy of a git repository which is not quite a copy</h2>
+          Blog post in development!
+        </section>
+      </section>
+
+      <section>
+        <section id="books" data-background="images/books.png">
+          <b>
+          <h1>THE END</h1>
+            Are you in love yet?
+          </b>
+        </section>
+
+        <section id="theend">
+          <h1>THE END</h1>
+            JavaScript source code for the slides taken from
+            <a href="https://github.com/hakimel/reveal.js" target="_blank">
+            <code>reveal.js</code></a>.
+            <br>
+            I encourage you to try it!
+          </p>
+        </section>
+      </section>
+
+      </div><!-- .slides -->
+  </div><!-- .reveal -->
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
